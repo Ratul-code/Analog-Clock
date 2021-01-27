@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .container{
+    position: relative;
+    margin: auto;
+    height: 30vw;
+    width: 30vw; 
+    background: url(clock.png) no-repeat;
+    background-size: 100%;
+}
+#hhand,#mhand,#shand{
+    position: absolute;
+    background: black;
+    border-radius: 10px; 
+    transform-origin: bottom;
+}
+#hhand{
+
+    width: 1.8%;
+    height: 25%;
+    top: 25%;
+    left: 49.5%;
+    opacity: 0.8;
+    /* display: none; */
+
+}
+#mhand{
+    width: 1.6%;
+    height: 30%;
+    top: 19%;
+    left: 49.6%;
+    opacity: 0.8;
+    /* display: none; */
+
+}
+#shand{
+    width: 1%;
+    height: 35%;
+    top: 14%;
+    left: 49.86%;
+    opacity: 0.8;;
+    /* display: none; */
+
+}
+</style>
+<body>
+    <div class="container">
+        <div id="hhand">
+
+        </div>
+        <div id="mhand">
+
+        </div>
+        <div id="shand">
+
+        </div>
+    </div>
+    
+</body>
+<script>
+    setInterval(() => {
+        var d=new Date();
+        hrhand=d.getHours()
+        mihand=d.getMinutes()
+        sehand=d.getSeconds()
+        hro =30*hrhand+mihand/2
+        mro =6*mihand
+        sro =6*sehand
+        hhand.style.transform=`rotate(${hro}deg)`;
+        mhand.style.transform=`rotate(${mro}deg)`;
+        shand.style.transform=`rotate(${sro}deg)`;
+    }, 1000);
+</script>
+</html>
